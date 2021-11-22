@@ -29,9 +29,12 @@ public class RectangularLegoTriangle : LegoTriangle, IPreConstructionValidation
 
     public RectangularLegoTriangle(RgbColor color, Point a, Point b, Point c) : base(color, a, b, c)
     {
+        if (!(CanHavePoints(a, b, c) && CanHaveColor(color))) {
+            throw new ArgumentException("Invalid points or color provided");
+        }
     }
 
-    public new static bool CanHavePoints(Point[] points)
+    public new static bool CanHavePoints(params Point[] points)
     {
         if (TryExtractSides(points, out var sides))
         {

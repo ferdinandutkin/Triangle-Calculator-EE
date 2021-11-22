@@ -18,6 +18,6 @@ public abstract class LegoShape : ShapeBase, IGetDisplayName, IPreConstructionVa
 
     public static bool CanHaveColor(RgbColor color) => true;
 
-    public static bool CanHavePoints(Point[] point) => true;
+    public static bool CanHavePoints(params Point[] point) => true;
 }
 

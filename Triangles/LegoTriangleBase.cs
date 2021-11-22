@@ -20,6 +20,11 @@ public abstract class LegoTriangleBase : LegoShape, IPreConstructionValidation
         A = a;
         B = b;
         C = c;
+
+        if (!(CanHavePoints(a, b, c) && CanHaveColor(color)))
+        {
+            throw new ArgumentException("Invalid points or color provided");
+        }
     }
 
     static protected bool TryExtractSides(Point[] point, out (double a, double b, double c) sides)
@@ -37,7 +42,7 @@ public abstract class LegoTriangleBase : LegoShape, IPreConstructionValidation
         return false;
     }
 
-    public new static bool CanHavePoints(Point[] points)
+    public new static bool CanHavePoints(params Point[] points)
     {
         if (TryExtractSides(points, out var sides)) 
         { 

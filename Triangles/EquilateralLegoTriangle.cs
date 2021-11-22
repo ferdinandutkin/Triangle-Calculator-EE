@@ -6,6 +6,10 @@ public class EquilateralLegoTriangle : LegoTriangle, IPreConstructionValidation
 {
     public EquilateralLegoTriangle(RgbColor color, Point a, Point b, Point c) : base(color, a, b, c)
     {
+        if (!(CanHavePoints(a, b, c) && CanHaveColor(color)))
+        {
+            throw new ArgumentException("Invalid points or color provided");
+        }
     }
 
     public override string DisplayName => nameof(TriangleType.Equilateral);
@@ -13,7 +17,7 @@ public class EquilateralLegoTriangle : LegoTriangle, IPreConstructionValidation
 
     public override double Area => Math.Pow(AB, 2) * Math.Sqrt(3) / 4;
 
-    public new static bool CanHavePoints(Point[] points)
+    public new static bool CanHavePoints(params Point[] points)
     {
         if (TryExtractSides(points, out var sides))
         {
