@@ -15,7 +15,7 @@ public class Programm
 
         Lego lego = new(shapeFactory);
 
-        var output = lego.GetTriangleInformation(color, points);
+        var output = lego.GetShapeInformation(color, points);
 
         Console.WriteLine(output); 
 

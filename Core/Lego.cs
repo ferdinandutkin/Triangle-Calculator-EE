@@ -8,13 +8,13 @@ public class Lego
         _factory = factory;
     }
 
-    public string GetTriangleDispayName(RgbColor color, params Point[] points)
+    public string GetShapeDisplayName(RgbColor color, params Point[] points)
         => _factory.CreateInstance(color, points).DisplayName;
 
-    public double GetTriangleArea(RgbColor color, params Point[] points)
+    public double GetShapeArea(RgbColor color, params Point[] points)
       => _factory.CreateInstance(color, points).Area;
 
-    public string GetTriangleInformation(RgbColor color, params Point[] points)
+    public string GetShapeInformation(RgbColor color, params Point[] points)
     {
         var instance = _factory.CreateInstance(color, points);
         return $"{instance.DisplayName} {instance.Area}"; 
