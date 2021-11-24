@@ -2,7 +2,7 @@
 
 namespace Triangles;
 
-public class LegoTriangle : LegoTriangleBase, IPreConstructionValidation
+public class LegoTriangle : LegoTriangleBase
 {
 
     public override string DisplayName => nameof(TriangleType.Basic);
@@ -12,7 +12,7 @@ public class LegoTriangle : LegoTriangleBase, IPreConstructionValidation
         get
         {
             var p = (AB + BC + CA) / 2;
-            return Math.Sqrt(p * (p - AB) * (p - BC) * (p - CA));
+            return System.Math.Sqrt(p * (p - AB) * (p - BC) * (p - CA));
         }
     }
 

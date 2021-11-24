@@ -9,6 +9,6 @@ namespace Core
     public static class DoubleExtensions
     {
         public static bool CloseTo(this double a, double b)
-            => Math.Abs(a - b) < 0.0000001;
+            => System.Math.Abs(a - b) < 0.0000001;
     }
 }

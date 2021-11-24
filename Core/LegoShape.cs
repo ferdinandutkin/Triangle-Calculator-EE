@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Core;
 
-namespace Core;
-
-public abstract class LegoShape : ShapeBase, IGetDisplayName, IPreConstructionValidation
+public abstract class LegoShape : ShapeBase, IGetDisplayName
 {
 
-
-    public RgbColor Color { get; private set; }
+    public RgbColor Color { get; protected set; }
 
     protected LegoShape(RgbColor color) => Color = color;
 
     public abstract string DisplayName { get; }
 
-    public static bool CanHaveColor(RgbColor color) => true;
-
-    public static bool CanHavePoints(params Point[] point) => true;
 }
 
