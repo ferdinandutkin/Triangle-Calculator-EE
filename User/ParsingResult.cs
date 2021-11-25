@@ -1,6 +1,6 @@
 ﻿using Core;
 
-namespace View;
+namespace User;
 
 internal record ParsingResult(Point[] Points, RgbColor Color);
 

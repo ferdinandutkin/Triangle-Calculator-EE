@@ -1,4 +1,6 @@
 ﻿using Core;
+using Core.Interfaces;
+using Triangles.Shapes;
 
 namespace Triangles.Validators;
 

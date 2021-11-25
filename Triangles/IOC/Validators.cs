@@ -1,12 +1,12 @@
-﻿using Core;
+﻿using Core.Interfaces;
+using Triangles.Shapes;
 using Triangles.Validators;
 
 namespace Triangles.IOC;
 
 internal class Validators
 {
-
-    static readonly IReadOnlyDictionary<Type, ILegoShapeValidator> _validators = new Dictionary<Type, ILegoShapeValidator>()
+    private static readonly IReadOnlyDictionary<Type, ILegoShapeValidator> _validators = new Dictionary<Type, ILegoShapeValidator>()
         {
             {typeof(EquilateralLegoTriangle), EquilateralLegoTriangle! },
             {typeof(LegoTriangle), LegoTriangle! },
@@ -14,11 +14,11 @@ internal class Validators
 
         };
 
-    public static ILegoShapeValidator<EquilateralLegoTriangle> EquilateralLegoTriangle { get; } = new EquilateralLegoTriangleValidator();
+    public static ILegoShapeValidator<EquilateralLegoTriangle> EquilateralLegoTriangle => new EquilateralLegoTriangleValidator();
 
-    public static ILegoShapeValidator<RectangularLegoTriangle> RectangularLegoTriangle { get; } = new RectangularLegoTriangleValidator();
+    public static ILegoShapeValidator<RectangularLegoTriangle> RectangularLegoTriangle => new RectangularLegoTriangleValidator();
 
-    public static ILegoShapeValidator<LegoTriangle> LegoTriangle { get; } = new LegoTriangleValidator();
+    public static ILegoShapeValidator<LegoTriangle> LegoTriangle => new LegoTriangleValidator();
 
     public static ILegoShapeValidator Get<T>() => _validators[typeof(T)];
 

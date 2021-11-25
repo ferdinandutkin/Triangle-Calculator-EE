@@ -1,3 +1,3 @@
-﻿namespace View;
-public enum PossibleColor { Red, Orange, Yellow, Green, LightBlue, Blue, Violet, White}
+﻿namespace User;
+public enum PossibleColor { Red, Orange, Yellow, Green, LightBlue, Blue, Violet, White }
 

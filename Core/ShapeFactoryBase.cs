@@ -4,9 +4,9 @@ namespace Core;
 
 public abstract class ShapeFactoryBase<T> : IFactory<ShapeFactoryArguments, T> where T : ShapeBase
 {
-    public abstract T? CreateInstance(RgbColor color, params Point[] point);
+    public T? CreateInstance(RgbColor color, params Point[] points) => CreateInstance(new ShapeFactoryArguments(color, points));
 
-    public T? CreateInstance(ShapeFactoryArguments args) => CreateInstance(args.Color, args.Point);
+    public abstract T? CreateInstance(ShapeFactoryArguments args);
 
 }
 

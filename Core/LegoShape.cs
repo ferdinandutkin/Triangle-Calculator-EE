@@ -1,4 +1,6 @@
-﻿namespace Core;
+﻿using Core.Interfaces;
+
+namespace Core;
 
 public abstract class LegoShape : ShapeBase, IGetDisplayName
 {

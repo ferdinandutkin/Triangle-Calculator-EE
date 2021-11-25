@@ -1,8 +1,8 @@
 ﻿using Core;
 
-namespace Triangles;
+namespace Triangles.Shapes;
 
-public class RectangularLegoTriangle : LegoTriangle 
+public class RectangularLegoTriangle : LegoTriangle
 {
     public override string DisplayName => nameof(TriangleType.Rectangular);
 
@@ -29,10 +29,10 @@ public class RectangularLegoTriangle : LegoTriangle
 
     public RectangularLegoTriangle(RgbColor color, Point a, Point b, Point c) : base(color, a, b, c)
     {
-      
+
     }
 
-    
+
 
 }
 

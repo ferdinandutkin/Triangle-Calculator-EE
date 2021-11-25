@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace View;
+namespace User;
 
 public static class PossibleColorsExtensions
 {
@@ -22,5 +22,5 @@ public static class PossibleColorsExtensions
             PossibleColor.White => RgbColor.White,
             _ => throw new NotImplementedException()
         };
-           
+
 }

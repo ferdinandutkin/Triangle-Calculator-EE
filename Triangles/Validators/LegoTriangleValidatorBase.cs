@@ -1,4 +1,6 @@
 ﻿using Core;
+using Core.Interfaces;
+
 namespace Triangles.Validators;
 
 internal abstract class LegoTriangleValidatorBase : ILegoShapeValidator
@@ -12,7 +14,7 @@ internal abstract class LegoTriangleValidatorBase : ILegoShapeValidator
             var p3 = points[2];
 
             var pointsLieOnSameXAxis = p1.X.CloseTo(p2.X) && p2.X.CloseTo(p3.X);
-            var pointsLieOnSameYAxis = p1.Y.CloseTo(p2.X) && p2.Y.CloseTo(p3.X);
+            var pointsLieOnSameYAxis = p1.Y.CloseTo(p2.Y) && p2.Y.CloseTo(p3.Y);
             var pointsAreCollinear = pointsLieOnSameXAxis || pointsLieOnSameYAxis;
 
 
@@ -31,11 +33,11 @@ internal abstract class LegoTriangleValidatorBase : ILegoShapeValidator
     }
     public virtual bool CanHaveSides(double a, double b, double c)
     {
-        var oneSideIsBiggerThanSumOfTwoOthers = ((a + b > c) || (b + c > a) || (c + a > b));
+        var oneSideIsBiggerThanSumOfTwoOthers = (a + b > c) || (b + c > a) || (c + a > b);
 
-        var noSideHasZeroLength = !(a.CloseTo(0) || b.CloseTo(0) || c.CloseTo(0));
+        var sideHasZeroLength = a.CloseTo(0) || b.CloseTo(0) || c.CloseTo(0);
 
-        return oneSideIsBiggerThanSumOfTwoOthers && noSideHasZeroLength;
+        return oneSideIsBiggerThanSumOfTwoOthers && !sideHasZeroLength;
 
     }
 

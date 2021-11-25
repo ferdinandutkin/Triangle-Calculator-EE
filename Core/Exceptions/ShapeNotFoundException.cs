@@ -1,4 +1,4 @@
-﻿namespace Core;
+﻿namespace Core.Exceptions;
 
 public class ShapeNotFoundException : ArgumentException
 {

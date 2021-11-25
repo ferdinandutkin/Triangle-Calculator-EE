@@ -1,6 +1,6 @@
 ﻿using Core;
 
-namespace Triangles;
+namespace Triangles.Shapes;
 
 public class LegoTriangle : LegoTriangleBase
 {

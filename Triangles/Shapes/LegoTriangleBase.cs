@@ -1,6 +1,6 @@
 ﻿using Core;
 
-namespace Triangles;
+namespace Triangles.Shapes;
 
 public abstract class LegoTriangleBase : LegoShape
 {
@@ -26,7 +26,7 @@ public abstract class LegoTriangleBase : LegoShape
         if (!validator.CanHaveColor(color))
         {
             throw new ArgumentException("Invalid color provided");
-        }     
+        }
 
         A = a;
         B = b;
@@ -36,7 +36,7 @@ public abstract class LegoTriangleBase : LegoShape
     }
 
 
- 
+
 
 
 }

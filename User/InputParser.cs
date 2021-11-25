@@ -1,7 +1,7 @@
 ﻿using Core;
 using Sprache;
 
-namespace View;
+namespace User;
 
 internal static class InputParser
 {
@@ -13,12 +13,10 @@ internal static class InputParser
     public static ParsingResult ParseInput(string input)
       => _inputParser.Parse(input);
 
-
-    static readonly Parser<int> _intParser = from op in Parse.Optional(Parse.Char('-').Token())
-                                             from num in Parse.Number
-                                             select int.Parse(num) * (op.IsDefined ? -1 : 1);
-
-    static readonly Parser<Point> _pointParser =
+    private static readonly Parser<int> _intParser = from op in Parse.Char('-').Token().Optional()
+                                                     from num in Parse.Number
+                                                     select int.Parse(num) * (op.IsDefined ? -1 : 1);
+    private static readonly Parser<Point> _pointParser =
           from leading in Parse.WhiteSpace.Many()
           from ob in Parse.Char('(')
           from x in _intParser
@@ -28,17 +26,12 @@ internal static class InputParser
           from cb in Parse.Char(')')
           from trailing in Parse.WhiteSpace.Many()
           select new Point(x, y);
-
-
-
-    static readonly Parser<RgbColor> _colorParser =
+    private static readonly Parser<RgbColor> _colorParser =
          from leading in Parse.WhiteSpace.Many()
          from color in Parse.Letter.Many().Text()
          from trailing in Parse.WhiteSpace.Many()
          select Enum.Parse<PossibleColor>(color, true).ToRgbColor();
-
-
-    static readonly Parser<ParsingResult> _inputParser =
+    private static readonly Parser<ParsingResult> _inputParser =
          from leading in Parse.WhiteSpace.Many()
          from points in _pointParser.Many()
          from middle in Parse.WhiteSpace.Many()

@@ -1,5 +1,5 @@
 ﻿using System;
-using Triangles;
+using Triangles.Factories;
 
 namespace Tests
 {

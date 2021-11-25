@@ -1,4 +1,4 @@
-﻿namespace Core;
+﻿namespace Core.Exceptions;
 
 public class WrongColorException : ArgumentException
 {

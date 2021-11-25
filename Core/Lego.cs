@@ -2,17 +2,17 @@
 
 public class Lego
 {
-    LegoShapeFactoryBase _factory;
+    private readonly LegoShapeFactoryBase _factory;
     public Lego(LegoShapeFactoryBase factory)
     {
         _factory = factory;
     }
 
-    public string GetShapeDisplayName(RgbColor color, params Point[] points)
-        => _factory.CreateInstance(color, points).DisplayName;
+    public string? GetShapeDisplayName(RgbColor color, params Point[] points)
+        => _factory.CreateInstance(color, points)?.DisplayName;
 
-    public double GetShapeArea(RgbColor color, params Point[] points)
-      => _factory.CreateInstance(color, points).Area;
+    public double? GetShapeArea(RgbColor color, params Point[] points)
+      => _factory.CreateInstance(color, points)?.Area;
 
     public string GetShapeInformation(RgbColor color, params Point[] points)
     {

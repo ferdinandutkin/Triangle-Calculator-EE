@@ -1,11 +1,11 @@
 ﻿using Core;
-using Triangles;
+using Triangles.Factories;
 
-namespace View;
+namespace User;
 
 public class Programm
 {
-        
+
     public static void Main(string[] args)
     {
 
@@ -17,7 +17,7 @@ public class Programm
 
         var output = lego.GetShapeInformation(color, points);
 
-        Console.WriteLine(output); 
+        Console.WriteLine(output);
 
     }
 }

@@ -1,16 +1,16 @@
 using Core;
+using Core.Exceptions;
 using FluentAssertions;
 using System;
 using System.Linq;
-using Triangles;
+using Triangles.Shapes;
 using Xunit;
 
 namespace Tests
 {
     public class UnitTest1 : IClassFixture<FactoryFixture>
     {
-
-        FactoryFixture fixture;
+        private readonly FactoryFixture fixture;
 
         public UnitTest1(FactoryFixture fixture)
         {
@@ -56,7 +56,7 @@ namespace Tests
        
         }
 
-        [Fact]
+        [Fact] 
         public void CreateInstance_WithNotSuitablePointCount_ThrowsShapeNotFoundException()
         {
 

@@ -2,5 +2,6 @@
 
 public abstract class LegoShapeFactoryBase : ShapeFactoryBase<LegoShape>
 {
+
 }
 
